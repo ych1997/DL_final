@@ -5,8 +5,9 @@ def label(index,key,text):
 	for i in range(len(key)):
 		key[i][1]=int(key[i][1])
 		key[i][2]=int(key[i][2])
-		key[i][4]=str.upper(key[i][4])
+		#key[i][4]=str.upper(key[i][4])
 		#print(key)
+	j=0
 	with open('output2.csv', 'a', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 		j=0
@@ -24,17 +25,19 @@ def label(index,key,text):
 			else:
 				a.append("O")
 			writer.writerow(a)
-			if key[j][2]==i:
+			if key[j][2]-1==i:
 				j+=1
 				if j>=len(key):
 					j=0
 	return index
-fw = open('output2.csv', 'w')
-fw.close()
+f = open("output2.csv", "w")
+f.close()
 with open('output2.csv', 'a', newline='') as csvfile:
 	writer = csv.writer(csvfile)
 	a=['Sentence #','Word','Tag']
 	writer.writerow(a)
+#fw = open('file_io.data', 'w')
+#fw.close()
 f = open("train_2.txt", "r")
 key=[]
 space=0
